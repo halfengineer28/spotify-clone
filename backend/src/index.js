@@ -1,14 +1,17 @@
 import express from "express";
 import dotenv from "dotenv";
+import { clerkMiddleware } from "@clerk/express";
+import fileUpload from "express-fileupload";
+import path from "path";
 import { createServer } from "http";
 import cron from "node-cron";
 import fs from "fs";
 import { initializeSocket } from "./lib/socket.js";
 
 import { connectDB } from "./lib/db.js";
-import { clerkMiddleware } from "@clerk/express";
-import fileUpload from "express-fileupload";
-import path from "path";
+
+
+
 import cors from "cors";
 import adminRoute from "./routes/admin.route.js"
 import albumRoute from "./routes/album.route.js"
@@ -18,17 +21,18 @@ import statRoute from "./routes/stat.route.js"
 import userRoute from "./routes/user.route.js"
 
 dotenv.config();
-const app = express();
 const __dirname = path.resolve();
+const app = express();
+
 const PORT = process.env.PORT;
 const httpServer = createServer(app);
 initializeSocket(httpServer);
 
 app.use(
-  cors({
-    origin: "http://localhost:5173",
-    credentials: true,
-  })
+    cors({
+      origin: "http://localhost:5173",
+      credentials: true,
+    })
 );
 
 app.use(express.json());
