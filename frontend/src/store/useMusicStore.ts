@@ -97,20 +97,17 @@ export const useMusicStore = create<MusicStore>((set) => ({
         }
     },
 
- fetchStats: async () => {
-    set({ isLoading: true, error: null });
-    try {
-        const response = await axiosInstance.get("/stats");
-        set({ stats: response.data });
-    } catch (error: any) {
-        set({ error: error.message });
-    } finally {
-        set({ isLoading: false });
-    }
-},
-
-
-
+    fetchStats: async () => {
+        set({ isLoading: true, error: null });
+        try {
+            const response = await axiosInstance.get("/stats");
+            set({ stats: response.data });
+        } catch (error: any) {
+            set({ error: error.message });
+        } finally {
+            set({ isLoading: false });
+        }
+    },
 
 
     fetchAlbums: async () => {

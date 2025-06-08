@@ -24,7 +24,7 @@ interface ChatStore {
     fetchMessage: (userId: string) => Promise<void>
     setSelectedUser: (user: User | null) => void
 }
-const baseUrl =  import.meta.env.MODE === "development" ? "http://localhost:3000/api" : "/"
+const baseUrl = import.meta.env.MODE === "development" ? "http://localhost:3000/api" : "/"
 const socket = io(baseUrl, { autoConnect: false, withCredentials: true });
 
 export const useChatStore = create<ChatStore>((set, get) => ({
