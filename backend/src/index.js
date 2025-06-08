@@ -43,9 +43,9 @@ app.use(
   })
 );
 const tmpDir = path.join(process.cwd(), "tmp");
-cron.schedule("0  * * *", () => {
+cron.schedule("0 0 * * *", () => {
   if(fs.existsSync(tmpDir)){
-    fs.readDir(tmpDir, (err, files)=> {
+    fs.readdir(tmpDir, (err, files)=> {
       if(err){
         console.log("error", err)
         return
