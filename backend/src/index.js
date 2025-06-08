@@ -80,6 +80,6 @@ app.use((err, req, res, next) => {
 });
 
 httpServer.listen(PORT, () => {
-  console.log(`Server started at ${PORT}`);
+  console.log("Server started at" + PORT);
   connectDB();
 });
