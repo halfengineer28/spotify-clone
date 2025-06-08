@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import { createServer } from "http";
 import cron from "node-cron";
+import fs from "fs";
 import { initializeSocket } from "./lib/socket.js";
 import userRoute from "./routes/user.route.js";
 import authRoute from "./routes/auth.route.js";
@@ -14,7 +15,6 @@ import { clerkMiddleware } from "@clerk/express";
 import fileUpload from "express-fileupload";
 import path from "path";
 import cors from "cors";
-import fs from "fs";
 
 dotenv.config();
 const app = express();
@@ -43,7 +43,7 @@ app.use(
   })
 );
 const tmpDir = path.join(process.cwd(), "tmp");
-cron.schedule("0 0 * * *", () => {
+cron.schedule("0 * * * *", () => {
   if (fs.existsSync(tmpDir)) {
     fs.readdir(tmpDir, (err, files) => {
       if (err) {
