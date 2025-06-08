@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import { createServer } from "http";
-import cron from "node-cron"
+import cron from "node-cron";
 import { initializeSocket } from "./lib/socket.js";
 import userRoute from "./routes/user.route.js";
 import authRoute from "./routes/auth.route.js";
@@ -44,18 +44,18 @@ app.use(
 );
 const tmpDir = path.join(process.cwd(), "tmp");
 cron.schedule("0 0 * * *", () => {
-  if(fs.existsSync(tmpDir)){
-    fs.readdir(tmpDir, (err, files)=> {
-      if(err){
-        console.log("error", err)
-        return
+  if (fs.existsSync(tmpDir)) {
+    fs.readdir(tmpDir, (err, files) => {
+      if (err) {
+        console.log("error", err);
+        return;
       }
-      for(const file of files){
-        fs.unlink(path.join(tmpDir, file), (err) => {})
+      for (const file of files) {
+        fs.unlink(path.join(tmpDir, file), (err) => {});
       }
-    }) 
+    });
   }
-})
+});
 
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
