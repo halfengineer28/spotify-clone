@@ -6,7 +6,7 @@ import { initializeSocket } from "./lib/socket.js";
 import userRoute from "./routes/user.route.js";
 import authRoute from "./routes/auth.route.js";
 import albumRoute from "./routes/album.route.js";
-import statRoute from "./routes/album.route.js";
+import statRoute from "./routes/stat.route.js";
 import adminRoute from "./routes/admin.route.js";
 import songRoute from "./routes/songs.route.js";
 import { connectDB } from "./lib/db.js";
