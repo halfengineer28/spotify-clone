@@ -4,17 +4,18 @@ import { createServer } from "http";
 import cron from "node-cron";
 import fs from "fs";
 import { initializeSocket } from "./lib/socket.js";
-import userRoute from "./routes/user.route.js";
-import authRoute from "./routes/auth.route.js";
-import albumRoute from "./routes/album.route.js";
-import statRoute from "./routes/stat.route.js";
-import adminRoute from "./routes/admin.route.js";
-import songRoute from "./routes/songs.route.js";
+
 import { connectDB } from "./lib/db.js";
 import { clerkMiddleware } from "@clerk/express";
 import fileUpload from "express-fileupload";
 import path from "path";
 import cors from "cors";
+import adminRoute from "./routes/admin.route.js"
+import albumRoute from "./routes/album.route.js"
+import authRoute from "./routes/auth.route.js"
+import songRoute from "./routes/songs.route.js"
+import statRoute from "./routes/stat.route.js"
+import userRoute from "./routes/user.route.js"
 
 dotenv.config();
 const app = express();
