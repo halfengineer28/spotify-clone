@@ -9,7 +9,7 @@ A full-stack **Spotify Clone** with real-time features like chat, music streamin
 
 ## 📺 Demo
 
-🔗 [Live Demo](#https://spotify-clone-da1h.onrender.com)  
+🔗 [Live Demo](https://spotify-clone-da1h.onrender.com)  
 
 
 
